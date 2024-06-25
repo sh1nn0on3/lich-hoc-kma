@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://avatars.githubusercontent.com/u/122510132?u=193797725ecd748f97b5b0b4170ba8d522362275&v=4&size=64"
+      type="image/png"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+      crossorigin="anonymous"
+    ></script>
+
+    <link href="./style.css" rel="stylesheet" />
+    <title>Lấy API qldt</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        overflow: visible;
+      }
+      h1,
+      h2,
+      p {
+        margin-bottom: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+      .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+      }
+      .btn-warning:hover {
+        background-color: #e0a800;
+        border-color: #e0a800;
+      }
+      .responsive-img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px 0;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hướng Dẫn Lấy API</h1>
+      <h2>Bước 1: Lấy script nhằm lấy ra dữ liệu</h2>
+      <p>Bạn ấn vào nút copy này</p>
+      <button class="btn btn-warning" onclick="copyJsContent()">
+        Copy JS Take Content
+      </button>
+      <h2>
+        Bước 2: truy cập
+        <a href="http://qldt.actvn.edu.vn/" target="_blank"
+          >http://qldt.actvn.edu.vn/</a
+        >
+      </h2>
+
+      <p>Bạn chọn môn học cần cập nhật api mới</p>
+      <img src="./Anh/B1.png" alt="Bước 2" class="responsive-img" />
+      <h2>Bước 3: Dán script vào console và ấn copy</h2>
+      <p>Bạn ấn F12 hoặc chuột phải + Inspect</p>
+      <p>Chọn vào console và dán script bạn vừa copy</p>
+      <img src="./Anh/B3.png" alt="Bước 3" class="responsive-img" />
+      <h2>Bước 4: Vào trang update API và update</h2>
+    </div>
+
+    <script>
+      async function copyJsContent() {
+        try {
+          const response = await fetch("LayApi.js");
+          const text = await response.text();
+          await navigator.clipboard.writeText(text);
+          alert("JS content copied to clipboard!");
+        } catch (error) {
+          console.error("Failed to copy JS content:", error);
+        }
+      }
+    </script>
+  </body>
+</html>

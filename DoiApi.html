@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thay đổi giá trị mảng mon</title>
+  </head>
+  <body>
+    <h1>Thay đổi giá trị mảng mon</h1>
+    <div id="currentMonDiv">
+      <p>Giá trị hiện tại:</p>
+      <pre id="currentMon"></pre>
+    </div>
+    <form id="monForm">
+      <div>
+        <label for="monData">Nhập dữ liệu mới (dữ liệu dạng JSON):</label>
+        <textarea id="monData" name="monData" rows="10" required></textarea>
+      </div>
+      <button type="submit">Cập nhật</button>
+    </form>
+
+    <script>
+      // Lấy dữ liệu mảng mon ban đầu
+      fetch("duongDanFileMonJs")
+        .then((response) => response.json())
+        .then((data) => {
+          const currentMon = data.mon;
+          document.getElementById("currentMon").textContent = JSON.stringify(
+            currentMon,
+            null,
+            2
+          );
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Có lỗi xảy ra khi lấy dữ liệu!");
+        });
+
+      const monForm = document.getElementById("monForm");
+      monForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const monData = document.getElementById("monData").value;
+
+        try {
+          const monMoi = JSON.parse(monData);
+          // Cập nhật mảng "mon" trong file "mon.js"
+          // ... (giống như phần JavaScript trước)
+        } catch (error) {
+          alert("Dữ liệu JSON không hợp lệ!");
+          console.error(error);
+        }
+      });
+    </script>
+  </body>
+</html>
